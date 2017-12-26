@@ -1,4 +1,4 @@
-## HDFS分析方法 -- hdfs dfsadmin
+## HDFS Report分析方法 -- hdfs dfsadmin
 
 ### hdfs dfsadmin -report
 ```
