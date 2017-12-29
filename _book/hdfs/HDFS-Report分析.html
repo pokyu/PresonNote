@@ -1,0 +1,670 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.1 HDFS Report分析 · Pokyu的技术笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Pokyu Tung">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="HDFS的目录配额.html" />
+    
+    
+    <link rel="prev" href="hdfs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="hdfs.html">
+            
+                <a href="hdfs.html">
+            
+                    
+                    第一章：HDFS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="HDFS-Report分析.html">
+            
+                <a href="HDFS-Report分析.html">
+            
+                    
+                    1.1 HDFS Report分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="HDFS的目录配额.html">
+            
+                <a href="HDFS的目录配额.html">
+            
+                    
+                    1.2 HDFS的目录配额
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mapreduce/mapreduce.html">
+            
+                <a href="../mapreduce/mapreduce.html">
+            
+                    
+                    第二章：MapReduce
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mapreduce/详解Shuffle过程.html">
+            
+                <a href="../mapreduce/详解Shuffle过程.html">
+            
+                    
+                    2.1 详解Shuffle过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../yarn/yarn.html">
+            
+                <a href="../yarn/yarn.html">
+            
+                    
+                    第三章：Yarn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../yarn/Yarn内存分配管理机制及相关参数配置.html">
+            
+                <a href="../yarn/Yarn内存分配管理机制及相关参数配置.html">
+            
+                    
+                    3.1 Yarn内存分配管理机制及相关参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../yarn/Yarn调度器Scheduler详解.html">
+            
+                <a href="../yarn/Yarn调度器Scheduler详解.html">
+            
+                    
+                    3.2 Yarn调度器Scheduler详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hadoop/hadoop.html">
+            
+                <a href="../hadoop/hadoop.html">
+            
+                    
+                    第四章：Hadoop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hadoop/GP-Hadoop-Elk的原理区别.html">
+            
+                <a href="../hadoop/GP-Hadoop-Elk的原理区别.html">
+            
+                    
+                    4.1 GP-Hadoop-Elk的原理区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../spark/spark.html">
+            
+                <a href="../spark/spark.html">
+            
+                    
+                    第五章：Spark
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../spark/跨集群访问HBase.html">
+            
+                <a href="../spark/跨集群访问HBase.html">
+            
+                    
+                    5.1 跨集群访问HBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../zookeeper/zookeeper.html">
+            
+                <a href="../zookeeper/zookeeper.html">
+            
+                    
+                    第六章：Zookeeper
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../zookeeper/Basic Paxos算法.html">
+            
+                <a href="../zookeeper/Basic Paxos算法.html">
+            
+                    
+                    6.1 Basic Paxos算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../hive/hive.html">
+            
+                <a href="../hive/hive.html">
+            
+                    
+                    第七章：Hive
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../hive/Hive调优的目标原则及手段.html">
+            
+                <a href="../hive/Hive调优的目标原则及手段.html">
+            
+                    
+                    7.1 Hive调优的目标、原则及手段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../hive/Hive优化思路与常见问题.html">
+            
+                <a href="../hive/Hive优化思路与常见问题.html">
+            
+                    
+                    7.2 Hive优化思路与常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../hive/Hive优化之关键参数配置指导.html">
+            
+                <a href="../hive/Hive优化之关键参数配置指导.html">
+            
+                    
+                    7.3 Hive优化之关键参数配置指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../hive/Hive集成HBase详解.html">
+            
+                <a href="../hive/Hive集成HBase详解.html">
+            
+                    
+                    7.4 Hive集成HBase详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../end/">
+            
+                <a href="../end/">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.1 HDFS Report分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="11-hdfs-report&#x5206;&#x6790;&#x65B9;&#x6CD5;----hdfs-dfsadmin">1.1 HDFS Report&#x5206;&#x6790;&#x65B9;&#x6CD5; -- hdfs dfsadmin</h2>
+<h3 id="hdfs-dfsadmin--report">hdfs dfsadmin -report</h3>
+<pre><code>[root@CNSZ431014 ~]# hdfs dfsadmin -report
+Configured Capacity: 74426056298496 (67.69 TB)
+Present Capacity: 70124136352340 (63.78 TB)
+DFS Remaining: 33715992505225 (30.66 TB)
+DFS Used: 36408143847115 (33.11 TB)
+DFS Used%: 51.92%
+Under replicated blocks: 29904
+Blocks with corrupt replicas: 0
+Missing blocks: 0
+Missing blocks (with replication factor 1): 0
+
+-------------------------------------------------
+Live datanodes (6):
+
+Name: 10.14.18.207:25009 (CNSZ431018)
+Hostname: CNSZ431018
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 17720489594880 (16.12 TB)
+DFS Used: 7213844099821 (6.56 TB)
+Non DFS Used: 1017260168087 (947.40 GB)
+DFS Remaining: 9489385326972 (8.63 TB)
+DFS Used%: 40.71%
+DFS Remaining%: 53.55%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 18
+Last contact: Mon Dec 11 10:59:04 CST 2017
+
+
+Name: 10.14.18.208:25009 (CNSZ431019)
+Hostname: CNSZ431019
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 17720489594880 (16.12 TB)
+DFS Used: 7133852738211 (6.49 TB)
+Non DFS Used: 1016951088951 (947.11 GB)
+DFS Remaining: 9569685767718 (8.70 TB)
+DFS Used%: 40.26%
+DFS Remaining%: 54.00%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 16
+Last contact: Mon Dec 11 10:59:04 CST 2017
+
+
+Name: 10.14.18.206:25009 (CNSZ431017)
+Hostname: CNSZ431017
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 17720489594880 (16.12 TB)
+DFS Used: 6728401972418 (6.12 TB)
+Non DFS Used: 1018018554490 (948.10 GB)
+DFS Remaining: 9974069067972 (9.07 TB)
+DFS Used%: 37.97%
+DFS Remaining%: 56.29%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 19
+Last contact: Mon Dec 11 10:59:04 CST 2017
+
+
+Name: 10.14.18.203:25009 (CNSZ431014)
+Hostname: CNSZ431014
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 7088195837952 (6.45 TB)
+DFS Used: 5117967231685 (4.65 TB)
+Non DFS Used: 416702126051 (388.08 GB)
+DFS Remaining: 1553526480216 (1.41 TB)
+DFS Used%: 72.20%
+DFS Remaining%: 21.92%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 23
+Last contact: Mon Dec 11 10:59:04 CST 2017
+
+
+Name: 10.14.18.204:25009 (CNSZ431015)
+Hostname: CNSZ431015
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 7088195837952 (6.45 TB)
+DFS Used: 4596038181902 (4.18 TB)
+Non DFS Used: 417036831431 (388.40 GB)
+DFS Remaining: 2075120824619 (1.89 TB)
+DFS Used%: 64.84%
+DFS Remaining%: 29.28%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 22
+Last contact: Mon Dec 11 10:59:03 CST 2017
+
+
+Name: 10.14.18.205:25009 (CNSZ431016)
+Hostname: CNSZ431016
+Rack: /default/rack0
+Decommission Status : Normal
+Configured Capacity: 7088195837952 (6.45 TB)
+DFS Used: 5618039623078 (5.11 TB)
+Non DFS Used: 415951177146 (387.38 GB)
+DFS Remaining: 1054205037728 (981.80 GB)
+DFS Used%: 79.26%
+DFS Remaining%: 14.87%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 28
+Last contact: Mon Dec 11 10:59:04 CST 2017`
+</code></pre><h3 id="hdfs-dfsadmin--safemode-&#x5B89;&#x5168;&#x6A21;&#x5F0F;">hdfs dfsadmin -safemode &#x5B89;&#x5168;&#x6A21;&#x5F0F;</h3>
+<p>NameNode&#x5728;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019; &#x9996;&#x5148;&#x8FDB;&#x5165;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;datanode&#x4E22;&#x5931;&#x7684;block&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#xFF08;&#x7531;hdfs-site.xml&#x6587;&#x4EF6;&#x4E2D;dfs.safemode.threshold.pct&#x51B3;&#x5B9A;&#xFF0C;&#x9ED8;&#x8BA4;0.999f&#xFF09;&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x4F1A;&#x4E00;&#x76F4;&#x5904;&#x4E8E;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x72B6;&#x6001;&#x5373;&#x53EA;&#x8BFB;&#x72B6;&#x6001; &#xFF1B; &#x5426;&#x5219;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x5F71;&#x54CD;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x79BB;&#x5F00;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x3002;</p>
+<p>dfs.safemode.threshold.pct &#x8868;&#x793A;HDFS&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;DataNode&#x4E0A;&#x62A5;&#x7684; block&#x4E2A;&#x6570;0.999&#x500D;&#x624D;&#x53EF;&#x4EE5;&#x79BB;&#x5F00;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#xFF0C;&#x5426;&#x5219;&#x4E00;&#x76F4;&#x662F;&#x8FD9;&#x79CD;&#x53EA;&#x8BFB;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x4E3A;1&#x5219;hdfs&#x6C38;&#x8FDC;&#x662F;&#x5904;&#x4E8E;SafeMode&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x79BB;&#x5F00;&#x8FD9;&#x5904;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#xFF1A;</p>
+<p>1&#x3001;&#x4FEE;&#x6539; dfs.safemode.threshold.pct&#x4E3A;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5C0F;&#x7684;&#x503C;&#xFF0C;&#x7F3A;&#x7701;&#x503C;&#x662F;0.999
+2&#x3001;hadoop dfsadmin -safemode leave &#x547D;&#x4EE4;&#x5F3A;&#x5236;&#x79BB;&#x5F00;</p>
+<p>&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#xFF08;hdfs dfsadmin -safemode value&#xFF09;&#x505A;&#x5982;&#x4E0B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code># hdfs dfsadmin -safemode get    ## &#x8FD4;&#x56DE;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x662F;&#x5426;&#x5F00;&#x542F;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD4;&#x56DE; Safe mode is OFF/OPEN
+# hdfs dfsadmin -safemode enter  ## &#x8FDB;&#x5165;&#x5B89;&#x5168;&#x6A21;&#x5DE5;
+# hdfs dfsadmin -safemode leave  ## &#x5F3A;&#x5236; NameNode &#x79BB;&#x5F00;&#x5B89;&#x5168;&#x6A21;&#x5F0F;
+# hdfs dfsadmin -safemode wait   ## &#x7B49;&#x5F85;&#xFF0C;&#x4E00;&#x76F4;&#x5230;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x7ED3;&#x675F;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="hdfs.html" class="navigation navigation-prev " aria-label="Previous page: 第一章：HDFS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="HDFS的目录配额.html" class="navigation navigation-next " aria-label="Next page: 1.2 HDFS的目录配额">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.1 HDFS Report分析","level":"1.2.1","depth":2,"next":{"title":"1.2 HDFS的目录配额","level":"1.2.2","depth":2,"path":"hdfs/HDFS的目录配额.md","ref":"hdfs/HDFS的目录配额.md","articles":[]},"previous":{"title":"第一章：HDFS","level":"1.2","depth":1,"path":"hdfs/hdfs.md","ref":"hdfs/hdfs.md","articles":[{"title":"1.1 HDFS Report分析","level":"1.2.1","depth":2,"path":"hdfs/HDFS-Report分析.md","ref":"hdfs/HDFS-Report分析.md","articles":[]},{"title":"1.2 HDFS的目录配额","level":"1.2.2","depth":2,"path":"hdfs/HDFS的目录配额.md","ref":"hdfs/HDFS的目录配额.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Pokyu Tung","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Pokyu的技术笔记","language":"zh-hans","gitbook":"*","description":"Pokyu的技术笔记","direction":"ltr"},"file":{"path":"hdfs/HDFS-Report分析.md","mtime":"2017-12-28T15:23:20.330Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-29T15:37:19.012Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
