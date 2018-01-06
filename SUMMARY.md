@@ -13,6 +13,7 @@
     * [4.1 GP-Hadoop-Elk的原理区别](hadoop/GP-Hadoop-Elk的原理区别.md)
 * [第五章：Spark](spark/spark.md)
     * [5.1 跨集群访问HBase](spark/跨集群访问HBase.md)
+    * [5.2 pyspark](spark/pyspark.md)
 * [第六章：Zookeeper](zookeeper/zookeeper.md)
     * [6.1 Basic Paxos算法](zookeeper/Basic Paxos算法.md)
 * [第七章：Hive](hive/hive.md)
@@ -20,5 +21,9 @@
     * [7.2 Hive优化思路与常见问题](hive/Hive优化思路与常见问题.md)
     * [7.3 Hive优化之关键参数配置指导](hive/Hive优化之关键参数配置指导.md)
     * [7.4 Hive集成HBase详解](hive/Hive集成HBase详解.md)
+    * [7.5 表基础操作](hive/表基础操作.md)
+    * [7.6 Python操作hive](hive/Python操作hive.md)
+* [第八章：Shell](shell/shell.md)
+	* [8.1 命令详解](hive/命令详解.md)
 * [结束](end/README.md)
 
