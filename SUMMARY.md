@@ -31,7 +31,7 @@
     * [9.2 GitBook](工具/gitbook.md)
     * [9.3 Hexo](工具/hexo.md)
 * [第十章：Python](python/python.md)
-	* [10.1 Python基础](python/Python基础.md)
-	* [10.1 Django](python/django.md)
+    * [10.1 Python基础](python/Python基础.md)
+    * [10.1 Django](python/django.md)
 * [结束](end/README.md)
 
