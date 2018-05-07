@@ -7,7 +7,7 @@
         <title>9.1 Git · Pokyu的技术笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 3.2.2">
         <meta name="author" content="Pokyu Tung">
         
         
@@ -443,12 +443,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../shell/shell.html">
+        <li class="chapter " data-level="1.9" data-path="../运维/运维.html">
             
-                <a href="../shell/shell.html">
+                <a href="../运维/运维.html">
             
                     
-                    第八章：Shell
+                    第八章：运维
             
                 </a>
             
@@ -457,12 +457,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../shell/命令详解.html">
+        <li class="chapter " data-level="1.9.1" data-path="../运维/SHELL命令详解.html">
             
-                <a href="../shell/命令详解.html">
+                <a href="../运维/SHELL命令详解.html">
             
                     
-                    8.1 命令详解
+                    8.1 SHELL命令详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../运维/HADOOP命令详解.html">
+            
+                <a href="../运维/HADOOP命令详解.html">
+            
+                    
+                    8.2 HADOOP命令详解
             
                 </a>
             
@@ -835,6 +848,38 @@ falcon@ubuntu:/opt/app/note$ git commit -m &quot;add gitbook&quot;
  create mode 100644 README.md
  create mode 100644 SUMMARY.md
 falcon@ubuntu:/opt/app/note$
+</code></pre><h3 id="fatal-lf-would-be-replaced-by-crlf">fatal: LF would be replaced by CRLF</h3>
+<p>&#x9047;&#x5230;&#x8FD9;&#x4E24;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C; &#x57FA;&#x672C;&#x4E0A;&#x90FD;&#x662F;&#x53EB;&#x4F60;&#x5C06; autocrlf &#x8BBE;&#x7F6E;&#x4E3A; false. &#x4F46;&#x662F;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x6837;&#x5F88;&#x4E0D;&#x59A5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x662F;&#x6362;&#x884C;&#x7B26;&#x662F;LF&#xFF0C;&#x800C;autocrlf=true, &#x6B64;&#x65F6;git add&#x5C31;&#x4F1A;&#x9047;&#x5230; <strong>fatal: LF would be replaced by CRLF</strong> &#x7684;&#x9519;&#x8BEF;&#x3002;&#x6709;&#x4E24;&#x4E2A;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x5C06;&#x4F60;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7684;LF&#x8F6C;&#x4E3A;CRLF&#x5373;&#x53EF;&#x3010;&#x63A8;&#x8350;&#x3011;</li>
+<li>&#x5C06;autocrlf &#x8BBE;&#x7F6E;&#x4E3A; false</li>
+</ol>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x662F;&#x6362;&#x884C;&#x7B26;&#x662F;CRLF&#xFF0C;&#x800C;autocrlf=input,  &#x6B64;&#x65F6;git add&#x4E5F;&#x4F1A;&#x9047;&#x5230; <strong>fatal: CRLF would be replaced by LF</strong> &#x7684;&#x9519;&#x8BEF;&#x3002;&#x6709;&#x4E24;&#x4E2A;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x5C06;&#x4F60;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7684;CRLF&#x8F6C;&#x4E3A;LF&#x3010;&#x63A8;&#x8350;&#x3011;</li>
+<li>&#x5C06;autocrlf &#x8BBE;&#x7F6E;&#x4E3A;true &#x6216;&#x8005; false</li>
+</ol>
+<p>&#x6211;&#x7684;&#x5EFA;&#x8BAE;&#xFF1A;&#x5728;Mac&#x4E0A;&#x8BBE;&#x7F6E; autocrlf = input, &#x5728;Windows&#x4E0A;&#x8BBE;&#x7F6E;autocrlf = true&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x3002;</p>
+<hr>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;
+Windows&#xFF1A;&#xFF08;true&#xFF09;
+&#x63D0;&#x4EA4;&#x65F6;&#xFF0C;&#x5C06;CRLF &#x8F6C;&#x6210; LF&#x518D;&#x63D0;&#x4EA4;&#xFF1B;
+&#x5207;&#x51FA;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x5C06;LF &#x8F6C;&#x4E3A; CRLF;</p>
+<p>MAC/Linux: (input)
+&#x63D0;&#x4EA4;&#x65F6;,   &#x5C06;CRLF &#x8F6C;&#x6210; LF&#x518D;&#x63D0;&#x4EA4;&#xFF1B;
+&#x5207;&#x51FA;&#x65F6;&#xFF0C;&#x4FDD;&#x6301;LF&#x5373;&#x53EF;</p>
+<p>&#x8FD9;&#x6837;&#x5373;&#x53EF;&#x4FDD;&#x8BC1;&#x4ED3;&#x5E93;&#x4E2D;&#x6C38;&#x8FDC;&#x90FD;&#x662F;LF. &#x800C;&#x4E14;&#x5728;Windows&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x90FD;&#x662F;CRLF, &#x5728;Mac/Linux&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x90FD;&#x662F;LF.</p>
+<hr>
+<p><strong>core.autocrlf</strong></p>
+<p>&#x5047;&#x5982;&#x4F60;&#x6B63;&#x5728;Windows&#x4E0A;&#x5199;&#x7A0B;&#x5E8F;&#xFF0C;&#x53C8;&#x6216;&#x8005;&#x4F60;&#x6B63;&#x5728;&#x548C;&#x5176;&#x4ED6;&#x4EBA;&#x5408;&#x4F5C;&#xFF0C;&#x4ED6;&#x4EEC;&#x5728;Windows&#x4E0A;&#x7F16;&#x7A0B;&#xFF0C;&#x800C;&#x4F60;&#x5374;&#x5728;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x884C;&#x5C3E;&#x7ED3;&#x675F;&#x7B26;&#x95EE;&#x9898;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;Windows&#x4F7F;&#x7528;&#x56DE;&#x8F66;&#x548C;&#x6362;&#x884C;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x6765;&#x7ED3;&#x675F;&#x4E00;&#x884C;&#xFF0C;&#x800C;Mac&#x548C;Linux&#x53EA;&#x4F7F;&#x7528;&#x6362;&#x884C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x3002;&#x867D;&#x7136;&#x8FD9;&#x662F;&#x5C0F;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x5B83;&#x4F1A;&#x6781;&#x5927;&#x5730;&#x6270;&#x4E71;&#x8DE8;&#x5E73;&#x53F0;&#x534F;&#x4F5C;&#x3002;</p>
+<p>Git&#x53EF;&#x4EE5;&#x5728;&#x4F60;&#x63D0;&#x4EA4;&#x65F6;&#x81EA;&#x52A8;&#x5730;&#x628A;&#x884C;&#x7ED3;&#x675F;&#x7B26;CRLF&#x8F6C;&#x6362;&#x6210;LF&#xFF0C;&#x800C;&#x5728;&#x7B7E;&#x51FA;&#x4EE3;&#x7801;&#x65F6;&#x628A;LF&#x8F6C;&#x6362;&#x6210;CRLF&#x3002;&#x7528;core.autocrlf&#x6765;&#x6253;&#x5F00;&#x6B64;&#x9879;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5728;Windows&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x628A;&#x5B83;&#x8BBE;&#x7F6E;&#x6210;true&#xFF0C;&#x8FD9;&#x6837;&#x5F53;&#x7B7E;&#x51FA;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;LF&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;CRLF&#xFF1A;</p>
+<pre><code>$ git config --global core.autocrlf true
+</code></pre><p>Linux&#x6216;Mac&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;LF&#x4F5C;&#x4E3A;&#x884C;&#x7ED3;&#x675F;&#x7B26;&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x4E0D;&#x60F3; Git &#x5728;&#x7B7E;&#x51FA;&#x6587;&#x4EF6;&#x65F6;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x7684;&#x8F6C;&#x6362;&#xFF1B;&#x5F53;&#x4E00;&#x4E2A;&#x4EE5;CRLF&#x4E3A;&#x884C;&#x7ED3;&#x675F;&#x7B26;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x5C0F;&#x5FC3;&#x88AB;&#x5F15;&#x5165;&#x65F6;&#x4F60;&#x80AF;&#x5B9A;&#x60F3;&#x8FDB;&#x884C;&#x4FEE;&#x6B63;&#xFF0C;&#x628A;core.autocrlf&#x8BBE;&#x7F6E;&#x6210;input&#x6765;&#x544A;&#x8BC9; Git &#x5728;&#x63D0;&#x4EA4;&#x65F6;&#x628A;CRLF&#x8F6C;&#x6362;&#x6210;LF&#xFF0C;&#x7B7E;&#x51FA;&#x65F6;&#x4E0D;&#x8F6C;&#x6362;&#xFF1A;</p>
+<pre><code>$ git config --global core.autocrlf input
+</code></pre><p>&#x8FD9;&#x6837;&#x4F1A;&#x5728;Windows&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x7B7E;&#x51FA;&#x6587;&#x4EF6;&#x4E2D;&#x4FDD;&#x7559;CRLF&#xFF0C;&#x4F1A;&#x5728;Mac&#x548C;Linux&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5305;&#x62EC;&#x4ED3;&#x5E93;&#x4E2D;&#x4FDD;&#x7559;LF&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x662F;Windows&#x7A0B;&#x5E8F;&#x5458;&#xFF0C;&#x4E14;&#x6B63;&#x5728;&#x5F00;&#x53D1;&#x4EC5;&#x8FD0;&#x884C;&#x5728;Windows&#x4E0A;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;false&#x53D6;&#x6D88;&#x6B64;&#x529F;&#x80FD;&#xFF0C;&#x628A;&#x56DE;&#x8F66;&#x7B26;&#x8BB0;&#x5F55;&#x5728;&#x5E93;&#x4E2D;&#xFF1A;</p>
+<pre><code>$ git config --global core.autocrlf false
 </code></pre>
                                 
                                 </section>
@@ -878,7 +923,7 @@ falcon@ubuntu:/opt/app/note$
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.1 Git","level":"1.10.1","depth":2,"next":{"title":"9.2 GitBook","level":"1.10.2","depth":2,"path":"工具/gitbook.md","ref":"工具/gitbook.md","articles":[]},"previous":{"title":"第九章：工具","level":"1.10","depth":1,"path":"工具/工具.md","ref":"工具/工具.md","articles":[{"title":"9.1 Git","level":"1.10.1","depth":2,"path":"工具/git.md","ref":"工具/git.md","articles":[]},{"title":"9.2 GitBook","level":"1.10.2","depth":2,"path":"工具/gitbook.md","ref":"工具/gitbook.md","articles":[]},{"title":"9.3 Hexo","level":"1.10.3","depth":2,"path":"工具/hexo.md","ref":"工具/hexo.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Pokyu Tung","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Pokyu的技术笔记","language":"zh-hans","gitbook":"*","description":"Pokyu的技术笔记","direction":"ltr"},"file":{"path":"工具/git.md","mtime":"2018-01-06T05:01:40.217Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-06T05:10:56.491Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.1 Git","level":"1.10.1","depth":2,"next":{"title":"9.2 GitBook","level":"1.10.2","depth":2,"path":"工具/gitbook.md","ref":"工具/gitbook.md","articles":[]},"previous":{"title":"第九章：工具","level":"1.10","depth":1,"path":"工具/工具.md","ref":"工具/工具.md","articles":[{"title":"9.1 Git","level":"1.10.1","depth":2,"path":"工具/git.md","ref":"工具/git.md","articles":[]},{"title":"9.2 GitBook","level":"1.10.2","depth":2,"path":"工具/gitbook.md","ref":"工具/gitbook.md","articles":[]},{"title":"9.3 Hexo","level":"1.10.3","depth":2,"path":"工具/hexo.md","ref":"工具/hexo.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Pokyu Tung","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Pokyu的技术笔记","language":"zh-hans","gitbook":"*","description":"Pokyu的技术笔记","direction":"ltr"},"file":{"path":"工具/git.md","mtime":"2018-04-04T13:57:32.728Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-07T14:53:16.641Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
