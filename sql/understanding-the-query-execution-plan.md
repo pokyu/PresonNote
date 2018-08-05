@@ -1,7 +1,10 @@
-# MySQL执行计划
-@(D. MySQL)
+---
+title: 理解 MySQL 执行计划
+category: user guide
+---
 
-[toc]
+# MySQL执行计划
+
 ## 执行计划结果：
 ### id
 标识位，可以看出执行顺序。
