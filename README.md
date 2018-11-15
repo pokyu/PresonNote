@@ -4,7 +4,7 @@
 
 + Hadoop 介与整体架构
 + Hadoop 用户文档
-  + SQL 优化
-    - [理解 MySQL 执行计划](sql/understanding-the-query-execution-plan.md)
-
+  + 运维手册
+    - [HDFS 运维手册](sql/understanding-the-query-execution-plan.md)
+  - [问题记录](问题记录.md)
 
