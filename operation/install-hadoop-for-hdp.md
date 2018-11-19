@@ -24,21 +24,21 @@ HADOOP离线集群安装 （HDP）
 | 序号 | 类型 | 账号 | 密码 | 用途 |
 | --- | --- | --- | --- | --- |
 | 1   | 主机 | root | 通用 |
-| 2   | DB | root | Mh1ndrc |
-| 3   | DB | ambari | Mh1ndrc |
-| 4   | KMS Master Secret | N/A | Mh1ndrc | KMS Master Secret |
-| 5   | DB | ranger | Mh1ndrc |
-| 6   | DB | rangerkms | Mh1ndrc |
-| 7   | DB | hive | Mh1ndrc |
-| 8   | Ambari | admin | wesure2018 |  Ambari UI |
+| 2   | DB | root | test1234 |
+| 3   | DB | ambari | test1234 |
+| 4   | KMS Master Secret | N/A | test1234 | KMS Master Secret |
+| 5   | DB | ranger | test1234 |
+| 6   | DB | rangerkms | test1234 |
+| 7   | DB | hive | test1234 |
+| 8   | Ambari | admin | test1234 |  Ambari UI |
 | 9   | Ambari | N/A | Muli1234 |Password for TrustStore |
-| 10  | Grafana Admin Password | admin | Mh1ndrc | Grafana Admin Password |
-| 11  | Ranger | admin | admin |   |
-| 12  | AD | hdfs | JI5iLZiD | CN=hdfs,OU=Service_Account,DC=wesure,DC=cn |
-| 13  | AD | hive | 4SvysMW4 | CN=hive,OU=Service_Account,DC=wesure,DC=cn |
-| 14  | AD | yarn | ByH8a8iA | CN=yarn,OU=Service_Account,DC=wesure,DC=cn |
-| 15  | AD | druid | lqninc7O | CN=druid,OU=Service_Account,DC=wesure,DC=cn |
-| 16  | AD | hadoop_ldap | uHij%DvF | CN=hadoop_ldap,OU=Service_Account,DC=wesure,DC=cn |
+| 10  | Grafana Admin Password | admin | test1234 | Grafana Admin Password |
+| 11  | Ranger | admin | test1234 |   |
+| 12  | AD | hdfs | test1234 | CN=hdfs,OU=Service_Account,DC=wesure,DC=cn |
+| 13  | AD | hive | test1234 | CN=hive,OU=Service_Account,DC=wesure,DC=cn |
+| 14  | AD | yarn | test1234 | CN=yarn,OU=Service_Account,DC=wesure,DC=cn |
+| 15  | AD | druid | test1234 | CN=druid,OU=Service_Account,DC=wesure,DC=cn |
+| 16  | AD | hadoop_ldap | test1234 | CN=hadoop_ldap,OU=Service_Account,DC=wesure,DC=cn |
 
 
 ```
@@ -231,8 +231,8 @@ cd /usr/local/mysql/mysql-5.7.18/bin
 ```
 ./mysql -uroot -p --socket=/var/lib/mysql/mysql3306.sock
 
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Mh1ndrc');
-grant all privileges on *.* to root@'10.60.%' identified by 'Mh1ndrc';
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('test1234');
+grant all privileges on *.* to root@'10.60.%' identified by 'test1234';
 grant all privileges on *.* to root@'10.60.%' WITH GRANT OPTION;
 flush privileges;
 ```
@@ -450,9 +450,9 @@ Complete!
 **账号密码：**
 ```
 mysql -u root -p
-CREATE USER 'ambari'@'localhost' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'ambari'@'localhost' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'ambari'@'localhost';
-CREATE USER 'ambari'@'10.60.%' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'ambari'@'10.60.%' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'ambari'@'10.60.%';
 FLUSH PRIVILEGES;
 ```
@@ -596,9 +596,9 @@ cvm-da-datasvr-whd7.hadoop.com
 ```
 
 ```
-CREATE USER 'hive'@'localhost' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'hive'@'localhost' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'hive'@'localhost';
-CREATE USER 'hive'@'10.60.%' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'hive'@'10.60.%' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'hive'@'10.60.%';
 FLUSH PRIVILEGES;
 CREATE DATABASE hive;
@@ -606,16 +606,16 @@ CREATE DATABASE hive;
 ```
 
 ```
-CREATE USER 'ranger'@'localhost' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'ranger'@'localhost' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'ranger'@'localhost';
-CREATE USER 'ranger'@'10.60.%' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'ranger'@'10.60.%' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'ranger'@'10.60.%';
 FLUSH PRIVILEGES;
 CREATE DATABASE ranger;
 
-CREATE USER 'rangerkms'@'localhost' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'rangerkms'@'localhost' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'rangerkms'@'localhost';
-CREATE USER 'rangerkms'@'10.60.%' IDENTIFIED BY 'Mh1ndrc';
+CREATE USER 'rangerkms'@'10.60.%' IDENTIFIED BY 'test1234';
 GRANT ALL PRIVILEGES ON *.* TO 'rangerkms'@'10.60.%';
 FLUSH PRIVILEGES;
 CREATE DATABASE rangerkms;
