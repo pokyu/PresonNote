@@ -356,8 +356,34 @@ Xceivers是指datanode当前用于传输数据的线程数（就是在Datanode�
 
 ## Fix under-replicated blocks
 
+hdfs dfsadmin -report 如下：
+```
+Under replicated blocks: 1706
+```
+
+修复方案：
+
 ```
 hdfs fsck / | grep 'Under replicated' | awk -F':' '{print $1}' >> /tmp/under_replicated_files
 for hdfsfile in `cat /tmp/under_replicated_files`; do echo "Fixing $hdfsfile :" ;  hadoop fs -setrep 3 $hdfsfile; done
 ```
+
+示例：
+```
+[root@cvm-da-datasvr-whd2 ~]# ll /tmp/under_replicated_files
+ls: cannot access /tmp/under_replicated_files: No such file or directory
+[root@cvm-da-datasvr-whd2 ~]# hdfs fsck / | grep 'Under replicated' | awk -F':' '{print $1}' >> /tmp/under_replicated_files
+Connecting to namenode via http://cvm-da-datasvr-whd2.hadoop.com:50070/fsck?ugi=hdfs&path=%2F
+[root@cvm-da-datasvr-whd2 ~]# ll /tmp/under_replicated_files
+-rw-r--r-- 1 root root 130293 Nov 26 10:19 /tmp/under_replicated_files
+[root@cvm-da-datasvr-whd2 ~]# wc -l /tmp/under_replicated_files
+1706 /tmp/under_replicated_files
+```
+
+全是/user/xxx/.staging目录下的jar包
+
+
+
+
+
 

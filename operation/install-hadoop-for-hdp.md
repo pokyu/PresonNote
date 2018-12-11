@@ -1,4 +1,4 @@
----
+cd .---
 title: 安装HDP集群
 category: Operations Guide
 ---
@@ -31,7 +31,7 @@ HADOOP离线集群安装 （HDP）
 | 6   | DB | rangerkms | test1234 |
 | 7   | DB | hive | test1234 |
 | 8   | Ambari | admin | test1234 |  Ambari UI |
-| 9   | Ambari | N/A | Muli1234 |Password for TrustStore |
+| 9   | Ambari | N/A | test1234 |Password for TrustStore |
 | 10  | Grafana Admin Password | admin | test1234 | Grafana Admin Password |
 | 11  | Ranger | admin | test1234 |   |
 | 12  | AD | hdfs | test1234 | CN=hdfs,OU=Service_Account,DC=wesure,DC=cn |
@@ -53,7 +53,7 @@ hadoop_ldap可操作的目录：OU=servers_hadoop,DC=wesure,DC=cn
 需要AD管理员提供证书文件：
 步骤待补充
 
-测试环境密码：ws1test2
+测试环境密码：test1234
 AD信息：
 ```
 10.0.16.14
@@ -62,7 +62,7 @@ ldaps://10.0.16.14:636
 OU=servers_hadoop,DC=wesuretest,DC=cn
 wesuretest.cn,.wesuretest.cn
 hadoop_ldap@WESURETEST.CN
-H@doop!@#
+test1234
 
 ambari_logsearch_admin admin
 ```
