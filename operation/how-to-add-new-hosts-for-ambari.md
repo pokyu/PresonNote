@@ -38,7 +38,13 @@ echo "10.60.16.44  cvm-da-datasvr-whd17.oa.com cvm-da-datasvr-whd17.oa.com. cvm-
 echo "10.60.16.100 cvm-da-datasvr-whd18.oa.com cvm-da-datasvr-whd18.oa.com. cvm-da-datasvr-whd18 " >> /etc/hosts
 echo "10.60.16.178 cvm-da-datasvr-whd19.oa.com cvm-da-datasvr-whd19.oa.com. cvm-da-datasvr-whd19 " >> /etc/hosts
 ```
-
+### 添加DNS 
+把新增主机的域名配置到生产DNS中
+```
+10.60.16.88  whd20.oa.com
+10.60.16.73  whd21.oa.com
+10.60.16.159 whd22.oa.com
+```
 ### 安装软件
 ```
 yum install sssd sssd-ad krb5-workstation authconfig oddjob-mkhomedir -y
