@@ -305,3 +305,56 @@ if __name__ == '__main__':
 2.需要执行hadoop.py文件
 3.防火墙，这边只能开出去的，其他机器访问这台的1019需要开(cms)
 4.新节点要打通到196和197库的访问权限（sqoop会用到）
+
+
+---
+
+## 部署组件监控exporter
+
+### 1.临时开放主机至proxy的网络权限（腾讯云上操作）
+### 2.安装python 依赖包
+```
+export ALL_PROXY=http://10.60.0.115:8080/
+pip install prometheus_client
+pip install flask
+pip install --upgrade pip
+unset ALL_PROXY
+```
+### 3.上传proc_monitor到/usr/local/wesure/tools目录下
+```
+cd /usr/local/wesure/tools/proc_monitor
+```
+### 4.修改config.py配置文件 
+
+vim config.py
+```
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*-
+process_list = ['LogFeeder','NodeManager']
+
+port_list = [
+        { 'NodeManager1' : 8040 },
+        { 'NodeManager2' : 7337 },
+        { 'NodeManager3' : 8042 },
+        { 'NodeManager4' : 45454},
+        { 'NodeManager5' : 7447},
+        { 'NodeManager6' : 13562},
+]
+```
+### 5.添加supervisord配置文件 
+cd /usr/local/wesure/supervisor/
+vim proc_monitor.conf
+```
+[program:proc_monitor]
+directory=/usr/local/wesure/tools/proc_monitor
+command=/usr/bin/python /usr/local/wesure/tools/proc_monitor/proc_monitor.py
+autorestart=true
+stdout_logfile=/usr/local/wesure/supervisor/proc_monitor.log
+stderr_logfile=/usr/local/wesure/supervisor/proc_monitor.err
+```
+### 6.用supervisorctl启动exporter程序
+```
+supervisorctl reread
+supervisorctl update
+supervisorctl status
+```
