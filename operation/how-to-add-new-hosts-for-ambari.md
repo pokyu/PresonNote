@@ -7,9 +7,9 @@ category: Operations Guide
 
 ### 添加hosts
 ```
-10.60.16.44  cvm-da-datasvr-whd17.oa.com cvm-da-datasvr-whd17.oa.com. cvm-da-datasvr-whd17
-10.60.16.100 cvm-da-datasvr-whd18.oa.com cvm-da-datasvr-whd18.oa.com. cvm-da-datasvr-whd18
-10.60.16.178 cvm-da-datasvr-whd19.oa.com cvm-da-datasvr-whd19.oa.com. cvm-da-datasvr-whd19
+10.60.16.88  whd20.oa.com whd20.oa.com. cvm-da-datasvr-whd20
+10.60.16.73  whd21.oa.com whd21.oa.com. cvm-da-datasvr-whd21
+10.60.16.159 whd22.oa.com whd22.oa.com. cvm-da-datasvr-whd22
 ```
 
 ### 添加互信
